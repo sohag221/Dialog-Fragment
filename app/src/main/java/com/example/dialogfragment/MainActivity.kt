@@ -1,6 +1,7 @@
 package com.example.dialogfragment
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,14 +24,22 @@ class MainActivity : AppCompatActivity() {
 
         binding.getDataButton.setOnClickListener {
 
-            val fragmentManager:FragmentManager
-            val myFragment:dialogFragment
+            val fragmentManager:FragmentManager = supportFragmentManager
+             val dialogfragment = dialogFragment()
 
+            dialogfragment.show(fragmentManager,"dialogFragment")
 
-
-
+            dialogfragment.isCancelable = false
 
         }
     }
+    fun getData(name:String , age:Int){
+
+        binding.name.text = "Name: $name"
+        binding.age.text = "Age: $age"
+
+
+    }
+
 
 }
